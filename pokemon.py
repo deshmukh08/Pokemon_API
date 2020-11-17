@@ -65,7 +65,7 @@ def moveType (movetypeValue,generationValue):
     try:
         url_move_type= "https://pokeapi.co/api/v2/type/" + movetypeValue
         response_move_type=requests.get(url_move_type).json()
-        generation_url = response_move_type['generation']['url'].encode("utf-8")
+        generation_url = response_move_type['generation']['url']
         if generationValue:
             generation_type=requests.get(generation_url).json()
             version_group = generation_type['version_groups']
@@ -82,7 +82,7 @@ def moveType (movetypeValue,generationValue):
         sys.exit()
     if  print_moves == True:    
         moveList= response_move_type['moves']
-        moves= [x['name'].encode("utf-8") for x in moveList[0:10]]
+        moves= [x['name'] for x in moveList[0:10]]
         move_len = len(moves)
         printList(moves,move_len)
     else:
@@ -98,15 +98,15 @@ def generationEnabled(response,pokemonName,generationValue):
         moves_len = len(response['moves'])
         matched = False
         for i in range(0,species_len):
-            species_temp=response_generation['pokemon_species'][i]['name'].encode("utf-8")         # Append species name in a temporary variable
+            species_temp=response_generation['pokemon_species'][i]['name']        # Append species name in a temporary variable
             
             if species_temp==pokemonName:
                 matched=True
         
         
-        if matched ==True:                                                                         # If matched append appropriate values to the moves list and return
+        if matched ==True:                                                                     # If matched append appropriate values to the moves list and return
             for i in range(0,moves_len):
-                move_name=response['moves'][i]['move']['name'].encode("utf-8")
+                move_name=response['moves'][i]['move']['name']
                 for j in response['moves'][i]['version_group_details']:
                     move_temp = j['version_group']['name']
                     if move_temp ==generationValue:
@@ -118,11 +118,11 @@ def generationEnabled(response,pokemonName,generationValue):
     
     return moves
     
-def generationDisabled(response,pokemonName):                                              # If generation flas is disabled append values to moves list and return
+def generationDisabled(response,pokemonName):                                              # If generation flag is disabled append values to moves list and return
     moves = []
     moves_len = len(response['moves'])
     for i in range(0,moves_len):
-        moves.append(response['moves'][i]['move']['name'].encode("utf-8"))
+        moves.append(response['moves'][i]['move']['name'])
     return moves
     
 def main():  
