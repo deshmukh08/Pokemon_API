@@ -1,35 +1,35 @@
-echo "Command :  python pokemon.py --lookup pikachu \n"
+echo "Command :  python pokemon.py --lookup pikachu "
 python pokemon.py --lookup pikachu
-echo "\n"
+echo ""
 
-echo "Command :  python pokemon.py --lookup 25 \n"
+echo "Command :  python pokemon.py --lookup 25 "
 python pokemon.py --lookup 25
-echo "\n"
+echo ""
 
-echo "Command :  python pokemon.py --lookup pikachu --generation yellow \n"
+echo "Command :  python pokemon.py --lookup pikachu --generation yellow "
 python pokemon.py --lookup pikachu --generation yellow
-echo "\n"
+echo ""
 
-echo "Command :  python pokemon.py --lookup 100000 \n"
+echo "Command :  python pokemon.py --lookup 100000 "
 python pokemon.py --lookup 100000
-echo "\n"
+echo ""
 
-echo "Command :  python pokemon.py --lookup pika \n"
+echo "Command :  python pokemon.py --lookup pika "
 python pokemon.py --lookup pika
-echo "\n"
+echo ""
 
-echo "Command :  python pokemon.py --lookup lugia --generation yellow \n"
+echo "Command :  python pokemon.py --lookup lugia --generation yellow "
 python pokemon.py --lookup lugia --generation yellow
-echo "\n"
+echo ""
 
-echo "Command :  python pokemon.py --move-type normal \n"
+echo "Command :  python pokemon.py --move-type normal "
 python pokemon.py --move-type normal
-echo "\n"
+echo ""
 
-echo "Command :  python pokemon.py --move-type norm \n"
+echo "Command :  python pokemon.py --move-type norm "
 python pokemon.py --move-type norm
-echo "\n"
+echo ""
 
-echo "Command :  python pokemon.py --move-type normal --generation yellow \n"
+echo "Command :  python pokemon.py --move-type normal --generation yellow "
 python pokemon.py --move-type normal --generation yellow
-echo "\n"
+echo ""
