@@ -8,13 +8,21 @@ To install all the requirements, simply run:
 ```
 ./requirements.txt
 ```
-This will install all the required tools to run the CLI tool
+This will install all the required tools to run the CLI tool. Make sure to give execute permission to the file by running:
+```
+chmod 755 requirements.txt
+```
 
 ## To run all commands
 To run all commands in a single command run the following command:
 ```
 ./commands.txt
 ```
+Make sure to give execute permission to the file by running:
+```
+chmod 755 commands.txt
+```
+
 ## To run single command
 To run a single command run the following format:
 ```
