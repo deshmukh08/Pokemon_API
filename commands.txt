@@ -1,0 +1,35 @@
+echo "Command :  python pokemon.py --lookup pikachu \n"
+python pokemon.py --lookup pikachu
+echo "\n"
+
+echo "Command :  python pokemon.py --lookup 25 \n"
+python pokemon.py --lookup 25
+echo "\n"
+
+echo "Command :  python pokemon.py --lookup pikachu --generation yellow \n"
+python pokemon.py --lookup pikachu --generation yellow
+echo "\n"
+
+echo "Command :  python pokemon.py --lookup 100000 \n"
+python pokemon.py --lookup 100000
+echo "\n"
+
+echo "Command :  python pokemon.py --lookup pika \n"
+python pokemon.py --lookup pika
+echo "\n"
+
+echo "Command :  python pokemon.py --lookup lugia --generation yellow \n"
+python pokemon.py --lookup lugia --generation yellow
+echo "\n"
+
+echo "Command :  python pokemon.py --move-type normal \n"
+python pokemon.py --move-type normal
+echo "\n"
+
+echo "Command :  python pokemon.py --move-type norm \n"
+python pokemon.py --move-type norm
+echo "\n"
+
+echo "Command :  python pokemon.py --move-type normal --generation yellow \n"
+python pokemon.py --move-type normal --generation yellow
+echo "\n"
