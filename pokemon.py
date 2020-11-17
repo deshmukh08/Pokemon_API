@@ -6,7 +6,7 @@ from tabulate import tabulate
 
 # Method to printList in a tabulated format
 def printList(moves,move_len):
-    moves_formatted=[moves[x:x+5] for x in xrange(0, move_len, 5)]
+    moves_formatted=[moves[x:x+5] for x in range(0, move_len, 5)]
     print(tabulate(moves_formatted,tablefmt="plain")) 
 
 # Main function to invoke pokemon and check for lookups 
@@ -90,26 +90,31 @@ def moveType (movetypeValue,generationValue):
 
 def generationEnabled(response,pokemonName,generationValue):
     moves = []
-    url_generation="https://pokeapi.co/api/v2/pokemon-color/"+ generationValue
-    response_generation=requests.get(url_generation).json()
+    try:
+        url_generation="https://pokeapi.co/api/v2/pokemon-color/"+ generationValue
+        response_generation=requests.get(url_generation).json()
     
-    species_len = len(response_generation['pokemon_species'])
-    moves_len = len(response['moves'])
-    matched = False
-    for i in range(0,species_len):
-        species_temp=response_generation['pokemon_species'][i]['name'].encode("utf-8")         # Append species name in a temporary variable
+        species_len = len(response_generation['pokemon_species'])
+        moves_len = len(response['moves'])
+        matched = False
+        for i in range(0,species_len):
+            species_temp=response_generation['pokemon_species'][i]['name'].encode("utf-8")         # Append species name in a temporary variable
+            
+            if species_temp==pokemonName:
+                matched=True
         
-        if species_temp==pokemonName:
-            matched=True
+        
+        if matched ==True:                                                                         # If matched append appropriate values to the moves list and return
+            for i in range(0,moves_len):
+                move_name=response['moves'][i]['move']['name'].encode("utf-8")
+                for j in response['moves'][i]['version_group_details']:
+                    move_temp = j['version_group']['name']
+                    if move_temp ==generationValue:
+                        moves.append(move_name)
+    except ValueError as e: 
+        print("The generation " + generationValue + " does not exist")
+        sys.exit()
     
-    
-    if matched ==True:                                                                         # If matched append appropriate values to the moves list and return
-        for i in range(0,moves_len):
-            move_name=response['moves'][i]['move']['name'].encode("utf-8")
-            for j in response['moves'][i]['version_group_details']:
-                move_temp = j['version_group']['name']
-                if move_temp ==generationValue:
-                    moves.append(move_name)
     
     return moves
     
